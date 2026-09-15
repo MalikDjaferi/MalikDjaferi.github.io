@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Malik Djaferi — software developer, systems builder and competitive sim racer. From Switzerland, living in Kosovo. Creator of Oxide. Racing under #32 with 5 championships and 46 podiums.">
+
+<meta name="author" content="Malik Djaferi">
+<meta name="theme-color" content="#08090b">
+
+<meta property="og:title" content="Malik Djaferi — Software Developer & #32">
+<meta property="og:description" content="Software developer, systems builder and competitive sim racer. Creator of Oxide. Racing under #32.">
+<meta property="og:type" content="website">
+
+<title>Malik Djaferi — Software Developer & #32</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Malik Djaferi",
+  "jobTitle": "Software Developer",
+  "email": "mailto:malikdjaferi32@gmail.com",
+  "description": "Software developer, systems builder and competitive sim racer. From Switzerland, living in Kosovo. Creator of Oxide.",
+  "birthPlace": {
+    "@type": "Place",
+    "name": "Switzerland"
+  },
+  "homeLocation": {
+    "@type": "Place",
+    "name": "Kosovo"
+  },
+  "sameAs": [
+    "https://github.com/MalikDjaferi"
+  ],
+  "knowsAbout": [
+    "Rust",
+    "Python",
+    "KiCad",
+    "Linux",
+    "Systems Programming",
+    "Cybersecurity",
+    "Electronics",
+    "PCB Design",
+    "Sim Racing",
+    "Motorsport"
+  ]
+}
+</script>
+
+<style>
+:root {
+    --bg: #08090b;
+    --text: #f4f4f2;
+    --muted: #9b9da3;
+    --line: rgba(255,255,255,.10);
+    --glass: rgba(255,255,255,.045);
+    --glass-strong: rgba(255,255,255,.075);
+    --max: 1180px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 80% 10%, rgba(255,48,48,.08), transparent 30%),
+        radial-gradient(circle at 10% 40%, rgba(255,255,255,.04), transparent 28%),
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .25;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+
+    background-size: 60px 60px;
+
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    right: -250px;
+    top: 25%;
+
+    border: 1px solid rgba(255,48,48,.08);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 70px rgba(255,48,48,.018),
+        0 0 0 140px rgba(255,48,48,.012);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(var(--max), calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(920px, calc(100% - 30px));
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 14px 11px 18px;
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    background: rgba(9,10,12,.72);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    transition: .3s ease;
+}
+
+nav.scrolled {
+    background: rgba(9,10,12,.92);
+    border-color: rgba(255,255,255,.16);
+}
+
+.nav-logo {
+    font-weight: 800;
+    letter-spacing: -.04em;
+}
+
+.nav-logo span {
+    color: #ff3030;
+}
+
+.nav-links {
+    display: flex;
+    gap: 5px;
+}
+
+.nav-links a {
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    color: var(--muted);
+
+    font-size: .82rem;
+
+    transition: .25s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+    background: rgba(255,255,255,.07);
+}
+
+.nav-number {
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    background: white;
+    color: #090909;
+
+    font-weight: 900;
+    font-size: .82rem;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: 140px 0 90px;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    left: -300px;
+    top: 10%;
+
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 90px rgba(255,255,255,.015),
+        0 0 0 180px rgba(255,255,255,.01);
+
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 900px;
+}
+
+.location {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 7px 11px;
+
+    border: 1px solid var(--line);
+    border-radius: 999px;
+
+    background: var(--glass);
+
+    backdrop-filter: blur(15px);
+
+    color: var(--muted);
+
+    font-size: .76rem;
+    letter-spacing: .04em;
+
+    margin-bottom: 25px;
+}
+
+.cross {
+    position: relative;
+
+    width: 17px;
+    height: 17px;
+
+    background: white;
+
+    clip-path:
+        polygon(
+            34% 0,
+            66% 0,
+            66% 34%,
+            100% 34%,
+            100% 66%,
+            66% 66%,
+            66% 100%,
+            34% 100%,
+            34% 66%,
+            0 66%,
+            0 34%,
+            34% 34%
+        );
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 8.8rem);
+
+    line-height: .84;
+
+    letter-spacing: -.085em;
+
+    font-weight: 900;
+
+    max-width: 900px;
+}
+
+.hero h1 span {
+    display: block;
+    color: rgba(255,255,255,.23);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 32px;
+
+    color: var(--muted);
+
+    font-size: clamp(1rem, 2vw, 1.18rem);
+
+    line-height: 1.75;
+}
+
+.hero-description strong {
+    color: white;
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px 17px;
+
+    border-radius: 13px;
+
+    border: 1px solid var(--line);
+
+    background: var(--glass);
+
+    font-size: .84rem;
+
+    transition: .3s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(255,255,255,.24);
+
+    background: var(--glass-strong);
+}
+
+.button.primary {
+    background: white;
+    color: #080808;
+
+    border-color: white;
+
+    font-weight: 700;
+}
+
+.button.primary:hover {
+    box-shadow: 0 10px 40px rgba(255,255,255,.1);
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 25px;
+}
+
+.hero-meta span {
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 999px;
+
+    color: #bfc0c4;
+
+    background: rgba(255,255,255,.025);
+
+    font-size: .7rem;
+
+    letter-spacing: .08em;
+}
+
+.scroll-hint {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: rgba(255,255,255,.28);
+
+    font-size: .65rem;
+
+    letter-spacing: .2em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 110px 0;
+}
+
+.section-head {
+    max-width: 760px;
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 11px;
+
+    color: var(--muted);
+
+    font-size: .65rem;
+
+    letter-spacing: .18em;
+
+    font-weight: 700;
+}
+
+.section-head h2 {
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+
+    line-height: .95;
+
+    letter-spacing: -.07em;
+
+    margin-bottom: 20px;
+}
+
+.section-head p {
+    color: var(--muted);
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+}
+
+
+/* =========================
+   ABOUT CARDS
+========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.card {
+    min-height: 240px;
+
+    padding: 25px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.card:hover {
+    transform:
+        translateY(-8px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    border-color: rgba(255,255,255,.2);
+
+    background: rgba(255,255,255,.075);
+}
+
+.card-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    border: 1px solid var(--line);
+
+    background: rgba(255,255,255,.045);
+
+    margin-bottom: 45px;
+
+    font-weight: 800;
+
+    color: white;
+}
+
+.card h3 {
+    font-size: 1.15rem;
+
+    letter-spacing: -.03em;
+
+    margin-bottom: 9px;
+}
+
+.card p {
+    color: var(--muted);
+
+    font-size: .86rem;
+
+    line-height: 1.65;
+}
+
+
+/* =========================
+   OXIDE
+========================= */
+
+.oxide {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 45px;
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,48,48,.12),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.018)
+        );
+}
+
+.oxide::after {
+    content: "OXIDE";
+
+    position: absolute;
+
+    right: -30px;
+    bottom: -45px;
+
+    font-size: clamp(6rem, 15vw, 14rem);
+
+    font-weight: 900;
+
+    letter-spacing: -.08em;
+
+    color: rgba(255,255,255,.025);
+
+    pointer-events: none;
+}
+
+.oxide-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    align-items: flex-start;
+}
+
+.oxide h2 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+
+    line-height: .8;
+
+    letter-spacing: -.09em;
+
+    margin-bottom: 22px;
+}
+
+.oxide p {
+    max-width: 670px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.oxide-badge {
+    flex-shrink: 0;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255,255,255,.11);
+
+    border-radius: 999px;
+
+    font-size: .65rem;
+
+    letter-spacing: .13em;
+
+    color: #c7c8ca;
+
+    background: rgba(255,255,255,.035);
+}
+
+.oxide-stack {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+.stack-item {
+    padding: 8px 11px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(255,255,255,.035);
+
+    font-size: .75rem;
+
+    color: #c5c6ca;
+}
+
+.github-link {
+    display: inline-flex;
+
+    margin-top: 30px;
+
+    padding: 12px 16px;
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    border-radius: 13px;
+
+    background: rgba(255,255,255,.05);
+
+    font-size: .8rem;
+
+    transition: .3s ease;
+}
+
+.github-link:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255,255,255,.1);
+}
+
+
+/* =========================
+   RACING
+========================= */
+
+.racing-profile {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: .7fr 1.3fr;
+
+    gap: 3rem;
+
+    align-items: center;
+
+    padding: 4rem;
+
+    margin-bottom: 1.5rem;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(255,255,255,.09),
+            transparent 35%
+        ),
+        rgba(255,255,255,.035);
+
+    backdrop-filter: blur(24px);
+
+    overflow: hidden;
+}
+
+.racing-profile::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255,255,255,.07),
+            transparent 70%
+        );
+
+    transform: translateX(-100%);
+
+    transition: transform 1s ease;
+}
+
+.racing-profile:hover::before {
+    transform: translateX(100%);
+}
+
+.driver-number {
+    font-size: clamp(7rem, 15vw, 13rem);
+
+    line-height: .75;
+
+    font-weight: 900;
+
+    letter-spacing: -.09em;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            rgba(255,255,255,.18)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 0 80px rgba(255,255,255,.08);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1);
+}
+
+.racing-profile:hover .driver-number {
+    transform: translateX(10px) scale(1.03);
+}
+
+.driver-number span {
+    font-size: .4em;
+
+    vertical-align: top;
+
+    opacity: .35;
+}
+
+.driver-info h3 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+    margin: .3rem 0 1rem;
+
+    letter-spacing: -.05em;
+}
+
+.driver-info p {
+    max-width: 650px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 1.05rem;
+}
+
+.driver-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: .6rem;
+
+    margin-top: 1.5rem;
+}
+
+.driver-tags span {
+    padding: .55rem .85rem;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 999px;
+
+    font-size: .7rem;
+
+    letter-spacing: .12em;
+
+    color: rgba(255,255,255,.65);
+
+    background: rgba(255,255,255,.035);
+
+    transition: .3s ease;
+}
+
+.driver-tags span:hover {
+    color: white;
+
+    border-color: rgba(255,255,255,.3);
+
+    background: rgba(255,255,255,.08);
+
+    transform: translateY(-3px);
+}
+
+
+/* Racing stats */
+
+.race-stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background: rgba(255,255,255,.1);
+
+    margin-bottom: 1.5rem;
+}
+
+.race-stat {
+    position: relative;
+
+    padding: 2.5rem 2rem;
+
+    background: rgba(10,10,12,.75);
+
+    text-align: center;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+}
+
+.race-stat:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255,255,255,.06);
+
+    z-index: 2;
+}
+
+.race-stat strong {
+    display: block;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    font-weight: 900;
+
+    letter-spacing: -.07em;
+
+    line-height: 1;
+}
+
+.race-stat span {
+    display: block;
+
+    margin-top: .8rem;
+
+    font-size: .65rem;
+
+    letter-spacing: .16em;
+
+    color: var(--muted);
+}
+
+
+/* Race story */
+
+.race-story {
+    display: grid;
+
+    grid-template-columns: 90px 1fr;
+
+    gap: 2rem;
+
+    padding: 3rem;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+
+    margin-bottom: 1.5rem;
+}
+
+.story-marker {
+    width: 64px;
+    height: 64px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    font-weight: 800;
+
+    font-size: .8rem;
+
+    background: rgba(255,255,255,.04);
+}
+
+.race-story h3 {
+    margin: .3rem 0 .8rem;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    letter-spacing: -.05em;
+}
+
+.race-story p {
+    max-width: 750px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+/* Teams */
+
+.teams {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+}
+
+.team-card {
+    padding: 2.5rem;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 26px;
+
+    background: rgba(255,255,255,.035);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255,255,255,.22);
+
+    background: rgba(255,255,255,.06);
+}
+
+.team-label {
+    font-size: .65rem;
+
+    letter-spacing: .15em;
+
+    color: var(--muted);
+}
+
+.team-card h3 {
+    margin: .7rem 0;
+
+    font-size: 1.8rem;
+
+    letter-spacing: -.04em;
+}
+
+.team-card p {
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   EXPLORING
+========================= */
+
+.explore-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.explore-item {
+    padding: 18px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 17px;
+
+    background: rgba(255,255,255,.025);
+
+    color: #c7c8cc;
+
+    font-size: .82rem;
+
+    transition: .3s ease;
+}
+
+.explore-item:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,.06);
+
+    color: white;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    position: relative;
+
+    padding: 65px 0 90px;
+}
+
+.contact-box {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 30px;
+
+    padding: 50px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(255,48,48,.1),
+            transparent 30%
+        ),
+        rgba(255,255,255,.035);
+}
+
+.contact h2 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+
+    letter-spacing: -.08em;
+
+    line-height: .85;
+}
+
+.contact p {
+    color: var(--muted);
+
+    max-width: 580px;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+}
+
+.contact-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 25px 0 35px;
+
+    color: #66686e;
+
+    font-size: .7rem;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.footer-inner {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .cards,
+    .explore-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .racing-profile {
+        grid-template-columns: 1fr;
+
+        padding: 2.5rem;
+    }
+
+    .race-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-box {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(100% - 28px, var(--max));
+    }
+
+    nav {
+        top: 10px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .cards,
+    .explore-grid,
+    .teams,
+    .race-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .oxide,
+    .contact-box {
+        padding: 30px;
+    }
+
+    .oxide-top {
+        flex-direction: column;
+    }
+
+    .driver-number {
+        font-size: 8rem;
+    }
+
+    .race-story {
+        grid-template-columns: 1fr;
+
+        padding: 2rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+
+        transform: none;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<nav id="nav">
+
+    <a href="#top" class="nav-logo">
+        Malik<span>.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#oxide">Oxide</a>
+        <a href="#racing">Racing</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-number">
+        32
+    </div>
+
+</nav>
+
+
+<main id="top">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="location">
+
+                <div class="cross"></div>
+
+                From Switzerland · Living in Kosovo
+
+            </div>
+
+
+            <h1>
+                Malik
+                <span>Djaferi.</span>
+            </h1>
+
+
+            <p class="hero-description">
+
+                <strong>
+                    15-year-old software developer, systems builder and competitive sim racer.
+                </strong>
+
+                I build software, experiment with electronics and low-level systems,
+                and race under <strong>#32</strong>.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a href="#oxide" class="button primary">
+                    Explore Oxide ↗
+                </a>
+
+                <a
+                    href="https://github.com/MalikDjaferi"
+                    target="_blank"
+                    rel="noopener"
+                    class="button"
+                >
+                    GitHub ↗
+                </a>
+
+                <a href="#racing" class="button">
+                    Racing #32 →
+                </a>
+
+            </div>
+
+
+            <div class="hero-meta">
+
+                <span>SOFTWARE DEVELOPMENT</span>
+                <span>RUST</span>
+                <span>PYTHON</span>
+                <span>KICAD</span>
+                <span>MOTORSPORT</span>
+                <span>SIM RACING</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="scroll-hint">
+        Scroll to explore
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <span class="eyebrow">
+                01 / ABOUT
+            </span>
+
+            <h2>
+                Building things.<br>
+                Breaking limits.
+            </h2>
+
+            <p>
+                I'm interested in the intersection of software, hardware,
+                engineering and competition. I like understanding how things
+                work — then building my own version of them.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <article class="card reveal">
+
+                <div class="card-icon">
+                    { }
+                </div>
+
+                <h3>
+                    Software Development
+                </h3>
+
+                <p>
+                    Building software with a focus on systems, performance,
+                    open source and learning how things work underneath the surface.
+                </p>
+
+            </article>
+
+
+            <article class="card reveal">
+
+                <div class="card-icon">
+                    01
+                </div>
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+                <p>
+                    Exploring Linux, systems, networking and security with
+                    an interest in understanding both the attack and defense sides.
+                </p>
+
+            </article>
+
+
+            <article class="card reveal">
+
+                <div class="card-icon">
+                    ⌁
+                </div>
+
+                <h3>
+                    Electronics & PCB
+                </h3>
+
+                <p>
+                    Designing circuits and PCBs in KiCad, experimenting with
+                    components and learning how hardware becomes a real system.
+                </p>
+
+            </article>
+
+
+            <article class="card reveal">
+
+                <div class="card-icon">
+                    32
+                </div>
+
+                <h3>
+                    Motorsport
+                </h3>
+
+                <p>
+                    Competitive sim racing, endurance racing, strategy and
+                    team ownership — always chasing the next podium.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     OXIDE
+========================= -->
+
+<section id="oxide" class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <span class="eyebrow">
+                02 / MAIN PROJECT
+            </span>
+
+        </div>
+
+
+        <div class="oxide reveal">
+
+            <div class="oxide-top">
+
+                <div>
+
+                    <h2>
+                        OXIDE
+                    </h2>
+
+                    <p>
+                        An open-source operating system built from scratch in Rust.
+                        Oxide is my long-term systems project — exploring kernels,
+                        drivers, graphics, input, shells and eventually a complete
+                        desktop environment.
+                    </p>
+
+                </div>
+
+
+                <div class="oxide-badge">
+                    OPEN SOURCE · RUST
+                </div>
+
+            </div>
+
+
+            <div class="oxide-stack">
+
+                <span class="stack-item">Rust</span>
+                <span class="stack-item">no_std</span>
+                <span class="stack-item">Kernel Development</span>
+                <span class="stack-item">Drivers</span>
+                <span class="stack-item">Limine</span>
+                <span class="stack-item">Framebuffer</span>
+                <span class="stack-item">Keyboard Input</span>
+                <span class="stack-item">Shell</span>
+
+            </div>
+
+
+            <a
+                href="https://github.com/MalikDjaferi/Oxide"
+                target="_blank"
+                rel="noopener"
+                class="github-link"
+            >
+                View Oxide on GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RACING
+========================= -->
+
+<section id="racing" class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <span class="eyebrow">
+                03 / MOTORSPORT
+            </span>
+
+            <h2>
+                The #32
+            </h2>
+
+            <p>
+                Sim racing is more than just another hobby for me.
+                It's competition, strategy, teamwork and the constant
+                pursuit of being faster.
+            </p>
+
+        </div>
+
+
+        <div class="racing-profile reveal">
+
+            <div class="driver-number">
+                <span>#</span>32
+            </div>
+
+
+            <div class="driver-info">
+
+                <span class="eyebrow">
+                    DRIVER PROFILE
+                </span>
+
+                <h3>
+                    Malik Djaferi
+                </h3>
+
+                <p>
+                    Racing under the number <strong>#32</strong>, I've competed
+                    across sim racing leagues as both a driver and team owner.
+                    I've raced for my own teams as well as teams such as Cadillac,
+                    while currently operating as team owner at Alpine.
+                </p>
+
+
+                <div class="driver-tags">
+
+                    <span>SIM RACING</span>
+                    <span>ENDURANCE</span>
+                    <span>TEAM OWNER</span>
+                    <span>RACE STRATEGY</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="race-stats reveal">
+
+
+            <div class="race-stat">
+
+                <strong>
+                    5
+                </strong>
+
+                <span>
+                    CHAMPIONSHIPS
+                </span>
+
+            </div>
+
+
+            <div class="race-stat">
+
+                <strong>
+                    46
+                </strong>
+
+                <span>
+                    PODIUMS
+                </span>
+
+            </div>
+
+
+            <div class="race-stat">
+
+                <strong>
+                    #32
+                </strong>
+
+                <span>
+                    RACING NUMBER
+                </span>
+
+            </div>
+
+
+            <div class="race-stat">
+
+                <strong>
+                    P1
+                </strong>
+
+                <span>
+                    ENDURANCE COMEBACK
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="race-story reveal">
+
+            <div class="story-marker">
+                01
+            </div>
+
+
+            <div>
+
+                <span class="eyebrow">
+                    A RACE TO REMEMBER
+                </span>
+
+                <h3>
+                    Last place → P1
+                </h3>
+
+                <p>
+                    One of the races that stands out most is an endurance event
+                    where I went from last place all the way to first. Long races
+                    aren't only about raw pace — consistency, strategy, patience
+                    and knowing when to push all matter.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="teams">
+
+
+            <div class="team-card reveal">
+
+                <span class="team-label">
+                    FORMER TEAM
+                </span>
+
+                <h3>
+                    Cadillac Sim Racing
+                </h3>
+
+                <p>
+                    Former team owner, competing and building a racing community
+                    around the team.
+                </p>
+
+            </div>
+
+
+            <div class="team-card reveal">
+
+                <span class="team-label">
+                    CURRENT TEAM
+                </span>
+
+                <h3>
+                    Alpine
+                </h3>
+
+                <p>
+                    Currently operating as team owner while continuing to compete
+                    in the racing scene.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CURRENTLY EXPLORING
+========================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <span class="eyebrow">
+                04 / CURRENTLY EXPLORING
+            </span>
+
+            <h2>
+                Always learning.
+            </h2>
+
+            <p>
+                The projects change, but the goal stays the same:
+                understand more, build more and keep getting better.
+            </p>
+
+        </div>
+
+
+        <div class="explore-grid">
+
+            <div class="explore-item reveal">
+                Rust & Systems
+            </div>
+
+            <div class="explore-item reveal">
+                Cybersecurity
+            </div>
+
+            <div class="explore-item reveal">
+                Electronics
+            </div>
+
+            <div class="explore-item reveal">
+                PCB Design
+            </div>
+
+            <div class="explore-item reveal">
+                Linux
+            </div>
+
+            <div class="explore-item reveal">
+                Python
+            </div>
+
+            <div class="explore-item reveal">
+                Automotive
+            </div>
+
+            <div class="explore-item reveal">
+                Motorsport
+            </div>
+
+            <div class="explore-item reveal">
+                Open Source
+            </div>
+
+            <div class="explore-item reveal">
+                Mechanical Engineering
+            </div>
+
+            <div class="explore-item reveal">
+                Embedded Systems
+            </div>
+
+            <div class="explore-item reveal">
+                Game Development
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div>
+
+                <span class="eyebrow">
+                    05 / CONTACT
+                </span>
+
+                <h2>
+                    Let's build<br>
+                    something.
+                </h2>
+
+                <p>
+                    For projects, collaboration, racing or just getting in touch,
+                    you can find me through GitHub or email.
+                </p>
+
+            </div>
+
+
+            <div class="contact-actions">
+
+                <a
+                    href="mailto:malikdjaferi32@gmail.com"
+                    class="button primary"
+                >
+                    Email me ↗
+                </a>
+
+                <a
+                    href="https://github.com/MalikDjaferi"
+                    target="_blank"
+                    rel="noopener"
+                    class="button"
+                >
+                    GitHub ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+            © 2026 Malik Djaferi
+        </span>
+
+        <span>
+            CH · XK · #32 · OXIDE
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+const nav = document.getElementById("nav");
+
+
+/* Navbar */
+
+window.addEventListener("scroll", () => {
+
+    nav.classList.toggle(
+        "scrolled",
+        window.scrollY > 30
+    );
+
+});
+
+
+/* Scroll reveal */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: .12
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
+
+
+/* Smooth anchor scrolling */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            const offset = 90;
+
+            const top =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                offset;
+
+            window.scrollTo({
+                top,
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+
+/* Glass card tilt */
+
+document
+    .querySelectorAll(".card, .team-card, .race-stat")
+    .forEach(card => {
+
+        card.addEventListener("mousemove", event => {
+
+            if (window.innerWidth < 900) return;
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left) /
+                rect.width - .5;
+
+            const y =
+                (event.clientY - rect.top) /
+                rect.height - .5;
+
+            card.style.transform =
+                `perspective(700px)
+                 rotateX(${-y * 4}deg)
+                 rotateY(${x * 4}deg)
+                 translateY(-6px)`;
+
+        });
+
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "";
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
